@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Epiphany_Music_App_1._0.WEBMVC.Models;
+using EpiphanyMusic.Data;
 
 namespace Epiphany_Music_App_1._0.WEBMVC.Controllers
 {

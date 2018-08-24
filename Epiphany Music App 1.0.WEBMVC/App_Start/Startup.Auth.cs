@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Epiphany_Music_App_1._0.WEBMVC.Models;
+using EpiphanyMusic.Data;
 
 namespace Epiphany_Music_App_1._0.WEBMVC
 {
