@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminUserCreate.cs" />
     <Compile Include="Concert.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\201808211923295_InitialCreate.cs" />
@@ -67,6 +68,18 @@
     <Compile Include="Migrations\201808231836213_concert.Designer.cs">
       <DependentUpon>201808231836213_concert.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808271921590_add database.cs" />
+    <Compile Include="Migrations\201808271921590_add database.Designer.cs">
+      <DependentUpon>201808271921590_add database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808281846541_deleated concert folder.cs" />
+    <Compile Include="Migrations\201808281846541_deleated concert folder.Designer.cs">
+      <DependentUpon>201808281846541_deleated concert folder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809021939222_ added model charge.cs" />
+    <Compile Include="Migrations\201809021939222_ added model charge.Designer.cs">
+      <DependentUpon>201809021939222_ added model charge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlayList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +87,19 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Scripts\esm\popper-utils.min.js.map" />
+    <None Include="Scripts\esm\popper.js.map" />
+    <None Include="Scripts\esm\popper.min.js.map" />
+    <None Include="Scripts\popper-utils.js.map" />
+    <None Include="Scripts\popper-utils.min.js.map" />
+    <None Include="Scripts\popper.js.map" />
+    <None Include="Scripts\popper.min.js.map" />
+    <None Include="Scripts\README.md" />
+    <None Include="Scripts\umd\popper-utils.js.map" />
+    <None Include="Scripts\umd\popper-utils.min.js.map" />
+    <None Include="Scripts\umd\popper.js.map" />
+    <None Include="Scripts\umd\popper.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808211923295_InitialCreate.resx">
@@ -85,6 +111,32 @@
     <EmbeddedResource Include="Migrations\201808231836213_concert.resx">
       <DependentUpon>201808231836213_concert.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808271921590_add database.resx">
+      <DependentUpon>201808271921590_add database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281846541_deleated concert folder.resx">
+      <DependentUpon>201808281846541_deleated concert folder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809021939222_ added model charge.resx">
+      <DependentUpon>201809021939222_ added model charge.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

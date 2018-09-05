@@ -4,63 +4,70 @@
     ViewBag.Title = "PlayList";
 }
 
-<h2>PlayList</h2>
+<h2>My PlayList</h2>
+    <style>
+        body {
+            background-image: url('../../Content/ing/cc_music2-1024x851.jpg');
+            background-repeat: no-repeat;
+            backgroud-size: center;
+        }
+    </style>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
- @if (TempData.ContainsKey("SaveResult"))
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    @if (TempData.ContainsKey("SaveResult"))
 
- {
-<div class="alert alert-success fade in" role="alert">
-
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-    @TempData["SaveResult"]
-</div>
- }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Artist)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Song)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Genre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlayListId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Artist)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Song)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.PlayListId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.PlayListId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.PlayListId })
-        </td>
-    </tr>
-    }
+        <div class="alert alert-success fade in" role="alert">
 
-</table>
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            @TempData["SaveResult"]
+        </div>
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Artist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayListId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Artist)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Song)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PlayListId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PlayListId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PlayListId })
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminServices.cs" />
     <Compile Include="ConcertService.cs" />
     <Compile Include="PlayListService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,8 +61,25 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Scripts\esm\popper-utils.min.js.map" />
+    <None Include="Scripts\esm\popper.js.map" />
+    <None Include="Scripts\esm\popper.min.js.map" />
+    <None Include="Scripts\popper-utils.js.map" />
+    <None Include="Scripts\popper-utils.min.js.map" />
+    <None Include="Scripts\popper.js.map" />
+    <None Include="Scripts\popper.min.js.map" />
+    <None Include="Scripts\README.md" />
+    <None Include="Scripts\umd\popper-utils.js.map" />
+    <None Include="Scripts\umd\popper-utils.min.js.map" />
+    <None Include="Scripts\umd\popper.js.map" />
+    <None Include="Scripts\umd\popper.min.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EpiphanyMusic.Contracts\EpiphanyMusic.Contracts.csproj">
+      <Project>{04AE005D-233F-4A91-AAB8-027B2A6E8F36}</Project>
+      <Name>EpiphanyMusic.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EpiphanyMusic.Data\EpiphanyMusic.Data.csproj">
       <Project>{2e9d2b09-747d-4121-b58c-320ecb296ce4}</Project>
       <Name>EpiphanyMusic.Data</Name>
@@ -70,6 +88,23 @@
       <Project>{e280f20a-ed5a-4bc1-86b7-0c74cc50daaf}</Project>
       <Name>EpiphanyMusic.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -39,7 +39,6 @@ namespace Epiphany_Music_App_1._0.WEBMVC.Controllers
 
             if (service.CreatePlayList(model))
             {
-                return RedirectToAction("Index");
 
                 TempData["SaveResult"] = "Your note was created.";
                 return RedirectToAction("Index");
@@ -123,9 +122,10 @@ namespace Epiphany_Music_App_1._0.WEBMVC.Controllers
 
             service.DeletePlayList(id);
 
-            TempData["SaveResult"] = "Your PlayList was deleted";
+            TempData["SaveResult"] = "Your PlayList Item was deleted";
 
             return RedirectToAction("Index");
         }
+
     }
 }

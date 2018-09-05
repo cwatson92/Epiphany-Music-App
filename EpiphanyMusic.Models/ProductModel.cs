@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EpiphanyMusic.Models
 {
-    class ConcertItem
+    public class ProductModel
     {
+        public string stripePublishableKey { get; set; }
     }
 }

@@ -21,6 +21,11 @@ namespace EpiphanyMusic.Models
         public string Genre { get; set; }
 
         public string Youtube { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
  

@@ -1,4 +1,5 @@
 ﻿using EpiphanyMusic.Data;
+using EpiphanyMusic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EpiphanyMusic.Services
 {
-    class ConcertService
+    public class ConcertService
     {
         private readonly Guid _userId;
 
@@ -18,11 +19,13 @@ namespace EpiphanyMusic.Services
         public bool CreateConcert(ConcertCreate model)
         {
             var entity =
-                new ConcertService()
+                new Concert()
                 {
-                    ConcertId = _userId,
+                    OwnerId = _userId,
                     Artist = model.Artist,
-                    Location = model.Location,
+                    TourName = model.TourName,
+                    City = model.City,
+                    State = model.State,
                     Price = model.Price,
                     Date = model.Date,
 
@@ -30,11 +33,13 @@ namespace EpiphanyMusic.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Concert.Add(entity);
+                ctx.Concerts.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
+
         }
-        public IEnumerable<ConcertItem> GetNotes()
+
+        public IEnumerable<ConcertListItem> GetNotes()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -44,20 +49,20 @@ namespace EpiphanyMusic.Services
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
-                                new ConcertItem
+                                new ConcertListItem
                                 {
                                     ConcertId = e.ConcertId,
-                                    Artist = e.Artist,
-                                    Location = e.Location,
-                                    Price = e. Price,
-                                    DateTime = e.Date,
+                                    TourName = e.TourName,
+                                    City = e.City,
+                                    State = e.State,
+                                    Price = e.Price,
+                                    Date = e.Date,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
                 return query.ToArray();
             }
         }
-
 
         public ConcertDetail GetConcertById(int id)
         {
@@ -68,18 +73,21 @@ namespace EpiphanyMusic.Services
 
                      .Concerts
                      .Single(e => e.ConcertId == id && e.OwnerId == _userId);
-                return
-                    new ConcertDetail
+                    ConcertDetail toReturn = new ConcertDetail
                     {
                         ConcertId = entity.ConcertId,
                         Artist = entity.Artist,
-                        Location = entity.Location,
+                        TourName = entity.TourName,
+                        City = entity.City,
+                        State = entity.State,
                         Price = entity.Price,
-                        Date = entity.Date,
+                        DateTime = entity.Date,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
                     };
+                return toReturn;
             }
         }
-
 
         public bool UpdateConcert(ConcertEdit model)
         {
@@ -91,27 +99,32 @@ namespace EpiphanyMusic.Services
                         .Single(e => e.ConcertId == model.ConcertId);
 
                 entity.Artist = model.Artist;
-                entity.Location = model.Location;
+                entity.TourName = model.TourName;
+                entity.City = model.City;
+                entity.State = model.State;
                 entity.Price = model.Price;
                 entity.Date = model.Date;
+
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
             }
         }
 
-
-        public bool DeleteConcert(int Id)
-        {
-            using (var ctx = new ApplicationDbContext())
+                public bool DeleteConcert(int Id)
             {
-                var entity =
-                    ctx
-                        .Concerts
-                        .Single(e => e.ConcertId == Id && e.OwnertId == _userId);
+                using (var ctx = new ApplicationDbContext())
+                {
+                    var entity =
+                        ctx
+                            .Concerts
+                            .Single(e => e.ConcertId == Id && e.OwnerId == _userId);
 
-                ctx.Concerts.Remove(entity);
+                    ctx.Concerts.Remove(entity);
 
-                return ctx.SaveChanges() == 1;
+                    return ctx.SaveChanges() == 1;
+                }
             }
-        }
     }
 }
+    
+    

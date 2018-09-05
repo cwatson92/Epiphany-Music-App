@@ -11,13 +11,30 @@ namespace EpiphanyMusic.Data
     {
         [Key]
         public int ConcertId { get; set; }
+
         [Required]
         public string Artist { get; set; }
+
         [Required]
-        public string Location { get; set; }
+        public Guid OwnerId { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string State { get; set; }
+
         [Required]
         public decimal Price { get; set; }
+
         [Required]
         public DateTime Date { get; set; }
+
+        public string TourName { get; set; }
+        
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
