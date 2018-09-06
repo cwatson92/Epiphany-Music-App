@@ -15,14 +15,14 @@ namespace EpiphanyMusic.WebMvcApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Our Mission.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "We Love To Hear From You!.";
 
             return View();
         }
